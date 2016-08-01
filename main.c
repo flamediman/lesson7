@@ -1,25 +1,23 @@
 #include<stdio.h>
 
 int main() {
-  int a, b, mediator;
-  int c = 0000;
-  int limit = 9999;
+  int first, second, current;
 
-  scanf("%a", &a);
-  scanf("%d", &b);
+  scanf("%d", &first);
+  scanf("%d", &second);
+  int limit = first > second ? first : second;
+  current = first;
 
-  while(c != a & c < limit) {
-    mediator = a;
-    a = b;
-    b = mediator;
-    c = c + 1;
+  for(int i = 0; i <= limit; i++) {
+    if( i == current ) {
+      printf("yes");
+      return 0;
+    }
+    // NOTE: If current is first then switch to second otherwise put first
+    current = current == first ? second : first;
   }
 
-  if( c == a ) {
-    printf("yes");
-  } else {
-     printf("no");
-    }
+  printf("no");
 
   return 0;
 }
